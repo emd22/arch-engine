@@ -5,8 +5,13 @@
 #include <fstream>
 #include <vector>
 #include <sstream>
+#include <algorithm>
+#include <functional>
+#include <cctype>
+#include <locale>
 
-void Split(const std::string &s, char delim, std::vector<std::string> &elems) {
+void Split(const std::string &s, char delim, std::vector<std::string> &elems) 
+{
 	std::stringstream ss;
 	ss.str(s);
 	std::string item;
@@ -15,10 +20,41 @@ void Split(const std::string &s, char delim, std::vector<std::string> &elems) {
 	}
 }
 
-std::vector<std::string> Split(const std::string &s, char delim) {
+std::vector<std::string> Split(const std::string &s, char delim) 
+{
 	std::vector<std::string> elems;
 	Split(s, delim, elems);
 	return elems;
+}
+
+static inline std::string &LeftTrim(std::string &s) 
+{
+	s.erase(s.begin(), std::find_if(s.begin(), s.end(),
+		std::not1(std::ptr_fun<int, int>(std::isspace))));
+	return s;
+}
+
+static inline std::string &RightTrim(std::string &s) 
+{
+	s.erase(std::find_if(s.rbegin(), s.rend(),
+		std::not1(std::ptr_fun<int, int>(std::isspace))).base(), s.end());
+	return s;
+}
+
+static inline std::string &Trim(std::string &s) 
+{
+	return LeftTrim(RightTrim(s));
+}
+
+static std::vector<std::string> RemoveEmpty(const std::vector<std::string> &strings)
+{
+	std::vector<std::string> res;
+	for (auto &&str : strings) {
+		if (!str.empty()) {
+			res.push_back(str);
+		}
+	}
+	return res;
 }
 
 struct ObjFace {
@@ -72,6 +108,8 @@ std::shared_ptr<Mesh> ObjLoader::LoadMesh(const std::string &path)
 			// tokens are separated by spaces
 			auto tokens = Split(line, ' ');
 			if (!tokens.empty()) {
+				tokens = RemoveEmpty(tokens);
+
 				if (tokens[0] == "v") { // vertex position
 					Vector3 pos;
 					// read x

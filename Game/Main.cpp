@@ -161,10 +161,10 @@ bool Run()
 
 	// test load file
 	ObjLoader loader;
-	auto cow_mesh = loader.LoadMesh("models/jesus.obj");
+	auto cow_mesh = loader.LoadMesh("models/Mountain Bike.obj");
 	auto cow_object = std::make_shared<GameObject>();
 	cow_object->SetMesh(cow_mesh);
-	cow_object->scale = Vector3(0.2f);
+	cow_object->scale = Vector3(0.02f);
 	cow_object->UpdateMatrix();
 	objects.push_back(cow_object);
 

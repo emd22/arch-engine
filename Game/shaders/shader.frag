@@ -7,5 +7,7 @@ uniform float red;
 
 void main()
 {
-  gl_FragColor = vec4(v_normal, 1.0);
+  vec3 lightdir = normalize(vec3(1.0, 1.0, 1.0));
+  float ndotl = dot(v_normal, lightdir);
+  gl_FragColor = vec4(vec3(ndotl), 1.0);
 }
