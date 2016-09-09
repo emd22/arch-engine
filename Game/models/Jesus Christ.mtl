@@ -1,0 +1,98 @@
+newmtl blueeye:blueEyeballSG
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+Ni 0.00
+newmtl initialShadingGroup
+illum 4
+Kd 0.32 0.12 0.08
+Ka 0.00 0.00 0.00
+Tf 0.92 0.92 0.92
+Ni 1.00
+newmtl jesus6b:FingerNails
+illum 4
+Kd 1.00 0.78 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+Ni 1.00
+Ks 0.50 0.50 0.50
+Ns 18.00
+newmtl jesus6b:Nipples
+illum 4
+Kd 1.00 0.56 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+Ni 1.00
+Ks 0.50 0.50 0.50
+Ns 18.00
+newmtl jesus6b:SkinBody
+illum 4
+Kd 0.99 0.90 0.63
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+Ni 1.00
+Ks 0.50 0.50 0.50
+Ns 18.00
+newmtl jesus6b:Toenails
+illum 4
+Kd 1.00 0.75 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+Ni 1.00
+Ks 0.50 0.50 0.50
+Ns 18.00
+newmtl jesus6b:blanket1:SE_Maroon231
+illum 4
+Kd 0.90 0.45 0.57
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+Ni 1.60
+newmtl jesus6b:sanal:SE_White
+illum 4
+Kd 0.50 0.33 0.09
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+Ni 1.60
+newmtl jesushead1:beard:SE_Orange31
+illum 4
+Kd 0.90 0.68 0.45
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+Ni 1.60
+newmtl jesushead1:haira:SE_White
+illum 4
+Kd 0.12 0.03 0.01
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+Ni 1.60
+newmtl jesushead1:headskina:SE_White
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+Ni 1.60
+newmtl jesushead1:lambert2SG
+illum 4
+Kd 0.95 0.83 0.55
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+Ni 1.00
+newmtl jesushead1:moutha:SE_White
+illum 4
+Kd 1.00 0.44 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+Ni 1.60
+newmtl jesushead1:tunga:SE_White
+illum 4
+Kd 1.00 0.53 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+Ni 1.60
+newmtl lambert2SG
+illum 4
+Kd 0.87 0.82 0.71
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+Ni 1.00
