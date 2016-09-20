@@ -8,7 +8,7 @@
 class InputManager
 {
 public:
-	std::map<char, bool> keys;
+	std::map<int, bool> keys;
 
 	double mx, my;
 

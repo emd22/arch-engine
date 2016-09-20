@@ -33,6 +33,13 @@ void Camera::UpdateMouse(InputManager *input_mgr, double delta_time)
 {
 	const double sensitivity = 0.8 * delta_time;
 
+	mouse_attached = !input_mgr->keys[342];
+	
+
+	if (!mouse_attached) {
+		return;
+	}
+
 	// if not resetting mouse:
 	// direction.x = -1 * ((input_mgr->mx / 1080) * 2 - 1);
 	// direction.y = -1 * ((input_mgr->my / 720) * 2 - 1);

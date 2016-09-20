@@ -88,6 +88,10 @@ Shader::Shader(const std::string &vertexSource, const std::string &fragmentSourc
 	glAttachShader(programID, vertexShaderID);
 	glAttachShader(programID, fragmentShaderID);
 
+	glBindAttribLocation(programID, 0, "a_position");
+	glBindAttribLocation(programID, 1, "a_normal");
+	glBindAttribLocation(programID, 2, "a_texcoord");
+
 	//Link our program
 	glLinkProgram(programID);
 
@@ -161,6 +165,22 @@ void Shader::SetUniformFloat(const std::string &name, float value)
 	auto loc = glGetUniformLocation(programID, name.c_str());
 	if (loc != -1) {
 		glProgramUniform1f(programID, loc, value);
+	}
+}
+
+void Shader::SetUniformVector3(const std::string &name, const Vector3 &value)
+{
+	auto loc = glGetUniformLocation(programID, name.c_str());
+	if (loc != -1) {
+		glProgramUniform3f(programID, loc, value.x, value.y, value.z);
+	}
+}
+
+void Shader::SetUniformVector4(const std::string &name, const Vector4 &value)
+{
+	auto loc = glGetUniformLocation(programID, name.c_str());
+	if (loc != -1) {
+		glProgramUniform4f(programID, loc, value.x, value.y, value.z, value.w);
 	}
 }
 

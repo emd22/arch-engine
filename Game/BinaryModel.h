@@ -1,0 +1,13 @@
+#pragma once
+
+enum BinaryModelFlags {
+	MODEL_TRANSLATION = 10,
+	MODEL_ROTATION,
+	MODEL_SCALE,
+
+	MODEL_VERTICES,
+	MODEL_INDICES,
+
+	MODEL_END_FILE = 99
+};
+

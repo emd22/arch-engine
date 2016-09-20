@@ -11,6 +11,8 @@ public:
 	Camera(uint width, uint height);
 	~Camera();
 
+	inline const Vector3 &GetPosition() const { return position; }
+
 	const Matrix4 &GetViewMatrix() const;
 	const Matrix4 &GetProjectionMatrix() const;
 
@@ -34,5 +36,7 @@ protected:
 	uint height;
 
 	double speed = 0.0;
+
+	bool mouse_attached = true;
 };
 

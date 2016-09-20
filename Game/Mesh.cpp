@@ -36,16 +36,26 @@ Mesh::~Mesh()
 	glDeleteBuffers(1, &iboID);
 }
 
+Material &Mesh::GetMaterial()
+{
+	return material;
+}
+
 void Mesh::Draw() 
 {
 	glBindBuffer(GL_ARRAY_BUFFER, vboID);
-	glEnableClientState(GL_VERTEX_ARRAY);
-	glVertexPointer(3, GL_FLOAT, sizeof(Vertex), BUFFER_OFFSET(0));   //The starting point of the VBO, for the vertices
-	glEnableClientState(GL_NORMAL_ARRAY);
-	glNormalPointer(GL_FLOAT, sizeof(Vertex), BUFFER_OFFSET(12));   //The starting point of normals, 12 bytes away
-	glClientActiveTexture(GL_TEXTURE0);
-	glEnableClientState(GL_TEXTURE_COORD_ARRAY);
-	glTexCoordPointer(2, GL_FLOAT, sizeof(Vertex), BUFFER_OFFSET(24));   //The starting point of texcoords, 24 bytes away
+	
+	glEnableVertexAttribArray(0); // positions
+	glEnableVertexAttribArray(1); // normals
+	glEnableVertexAttribArray(2); // texcoords
+
+	// set pointer to vertices
+	glVertexAttribPointer(0, 3, GL_FLOAT, false, sizeof(Vertex), BUFFER_OFFSET(0));
+	// set pointer to normals
+	glVertexAttribPointer(1, 3, GL_FLOAT, false, sizeof(Vertex), BUFFER_OFFSET(12));
+	// set pointer to texcoords
+	glVertexAttribPointer(2, 2, GL_FLOAT, false, sizeof(Vertex), BUFFER_OFFSET(24));
+
 	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, iboID);
-	glDrawElements(GL_TRIANGLES, indices.size(), GL_UNSIGNED_INT, BUFFER_OFFSET(0)); 
+	glDrawElements(GL_TRIANGLES, indices.size(), GL_UNSIGNED_INT, BUFFER_OFFSET(0));
 }

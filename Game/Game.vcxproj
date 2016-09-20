@@ -71,14 +71,16 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>C:\Users\ethan\Documents\Visual Studio 2015\Projects\Game\include;$(IncludePath)</IncludePath>
-    <LibraryPath>C:\Users\ethan\Documents\Visual Studio 2015\Projects\Game\lib\windows\32;$(LibraryPath)</LibraryPath>
+    <IncludePath>C:\Users\ethan\Documents\Visual Studio 2015\Projects\Game\Bullet;C:\Users\ethan\Documents\Visual Studio 2015\Projects\Game\include;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\Users\ethan\Documents\Visual Studio 2015\Projects\Game\Debug;C:\Users\ethan\Documents\Visual Studio 2015\Projects\Game\lib\windows\32;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
+    <IncludePath>C:\Users\ethan\Documents\Visual Studio 2015\Projects\Game\Game\imgui;C:\Users\ethan\Documents\Visual Studio 2015\Projects\Game\include;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\Users\ethan\Documents\Visual Studio 2015\Projects\Game\Release;C:\Users\ethan\Documents\Visual Studio 2015\Projects\Game\lib\windows\32;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
@@ -91,11 +93,13 @@
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>C:\Users\ethan\Documents\Visual Studio 2015\Projects\Game\include\Bullet;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>opengl32.lib;glfw3.lib;glew32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>opengl32.lib;glfw3.lib;glew32.lib;Bullet.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -122,12 +126,14 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>C:\Users\ethan\Documents\Visual Studio 2015\Projects\Game\Bullet;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>opengl32.lib;glfw3.lib;glew32.lib;Bullet.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -151,8 +157,13 @@
   <ItemGroup>
     <ClCompile Include="Camera.cpp" />
     <ClCompile Include="GameObject.cpp" />
+    <ClCompile Include="imgui\imgui.cpp" />
+    <ClCompile Include="imgui\imgui_demo.cpp" />
+    <ClCompile Include="imgui\imgui_draw.cpp" />
+    <ClCompile Include="imgui\imgui_impl_glfw_gl3.cpp" />
     <ClCompile Include="InputManager.cpp" />
     <ClCompile Include="Main.cpp" />
+    <ClCompile Include="Material.cpp" />
     <ClCompile Include="Math\math_util.cpp" />
     <ClCompile Include="Math\matrix4.cpp" />
     <ClCompile Include="Math\matrix_util.cpp" />
@@ -162,12 +173,25 @@
     <ClCompile Include="Math\vector4.cpp" />
     <ClCompile Include="Mesh.cpp" />
     <ClCompile Include="ModelLoaders\ObjLoader.cpp" />
+    <ClCompile Include="PhysicsWorld.cpp" />
+    <ClCompile Include="PointLight.cpp" />
     <ClCompile Include="Shader.cpp" />
+    <ClCompile Include="Texture.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="BinaryModel.h" />
     <ClInclude Include="Camera.h" />
+    <ClInclude Include="Color.h" />
     <ClInclude Include="GameObject.h" />
+    <ClInclude Include="imgui\imconfig.h" />
+    <ClInclude Include="imgui\imgui.h" />
+    <ClInclude Include="imgui\imgui_impl_glfw_gl3.h" />
+    <ClInclude Include="imgui\imgui_internal.h" />
+    <ClInclude Include="imgui\stb_rect_pack.h" />
+    <ClInclude Include="imgui\stb_textedit.h" />
+    <ClInclude Include="imgui\stb_truetype.h" />
     <ClInclude Include="InputManager.h" />
+    <ClInclude Include="Material.h" />
     <ClInclude Include="Math\math_util.h" />
     <ClInclude Include="Math\matrix4.h" />
     <ClInclude Include="Math\matrix_util.h" />
@@ -177,7 +201,11 @@
     <ClInclude Include="Math\vector4.h" />
     <ClInclude Include="Mesh.h" />
     <ClInclude Include="ModelLoaders\ObjLoader.h" />
+    <ClInclude Include="PhysicsWorld.h" />
+    <ClInclude Include="PointLight.h" />
     <ClInclude Include="Shader.h" />
+    <ClInclude Include="stb_image.h" />
+    <ClInclude Include="Texture.h" />
     <ClInclude Include="Types.h" />
     <ClInclude Include="Vertex.h" />
   </ItemGroup>
